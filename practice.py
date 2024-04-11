@@ -13,11 +13,9 @@ def print_players():
         print(f"{player[0]:<20}{player[1]:<20}{player[2]:<20}")
     connect.close()
 
-#a function to print that players and their id
 
-
-
-def print_player_and_id(): 
+# A function to print that players and their id
+def print_player_and_id():
     connect = sqlite3.connect("Bball.db")
     c = connect.cursor()
     players = c.execute("""Select id, Firstname, Lastname FROM Player""").fetchall()
@@ -27,20 +25,18 @@ def print_player_and_id():
     connect.close()
 
 
-#a function to print info about one player by their id
+# A function to print info about one player by their id
 def print_player_by_id(id):
     connect = sqlite3.connect("Bball.db")
     c = connect.cursor()
-    player = c.execute("""Select Player.Firstname, Player.Lastname, Player.Height, Player.Age, Player.Jerseynumber, Team.teamname, Position.Positionname 
+    player = c.execute("""Select Player.Firstname, Player.Lastname, Player.Height, Player.Age, Player.Jerseynumber, Team.teamname, Position.Positionname
                         FROM Player JOIN Team on Player.Teamid=Team.team_id
                         JOIN Position ON Player.Position=Position.ID
-                        Where Player.id = ?""", (id,) ).fetchone()
+                        Where Player.id = ?""", (id,)).fetchone()
     # print the header?
     print("Firstname           Lastname           Height              Age   Jerseynumber Teamname Position")
     print(f"{player[0]:<20}{player[1]:<20}{player[2]:<20}{player[3]:<10}{player[4]:<10}{player[5]:<10}{player[6]:<10}")
     connect.close()
-
-
 
 
 # First, lastname and height of players
@@ -107,14 +103,14 @@ while True:
     # players from different teams jerseynumber
     if user_input == "4":
         print_Jerseynumber()
-    # players from different teams position 
-    if user_input == "5":   
+    # players from different teams position
+    if user_input == "5":
         print_Position()
     if user_input == "6":
-        #ask user to choose an id
+        # ask user to choose an id
         print_player_and_id()
         id = input("Now that we know a little bit about NBA players, please select a player by their number:")
-        #run the query to print out info about that player
+        # run the query to print out info about that player
         print_player_by_id(id)
     if user_input =="7":
         break
