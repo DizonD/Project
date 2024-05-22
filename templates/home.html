@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+    <h1>Welcome to the NBA World!</h1>
+<div class="three_column">
+    {% for player in players %}
+    <div class="w3-card-4"> 
+        <a href="/player/{{player[0]}}" ><img src="{{ url_for('static', filename='/images/'+ player[3]) }}" alt="{{player[3]}}"></a>
+        <div class="w3-container w3-center">
+          <p>{{player[1]}} {{player[2]}}</p>
+    
+        </div>
+      </div>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -87,9 +87,9 @@ while True:
     user_input = input("""Enter 1 to see best players in each team:
                        \nEnter 2 to see the height of players:
                         \nEnter 3 to see the age of players:
-                        \nEnter 4 to see the jersey number of players
-                        \nEnter 5 to see the position of players
-                       \nEnter 6 to see a specific player
+                        \nEnter 4 to see the jersey number of players:
+                        \nEnter 5 to see the position of players:
+                       \nEnter 6 to see a specific player:
                        \nEnter 7 to Leave: """)
     # players from different teams name
     if user_input == "1":
