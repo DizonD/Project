@@ -8,6 +8,17 @@ grid-template-columns : 1fr 1fr 1fr ;
 gap:30px;
 }
 
+img{
+    width:100%;
+}
+
+.three_column{
+display: grid;
+grid-template-columns : 1fr 1fr 1fr ;
+gap:30px;
+}
+
+
 .two_column{
 display: grid;
 grid-template-columns: 1fr 1fr ;

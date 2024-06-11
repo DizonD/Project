@@ -24,6 +24,7 @@ def allplayers():
     connect.close()
     return render_template('allplayers.html', players=players)
 
+
 @app.route('/player/<int:id>')
 def player(id):
     connect = sqlite3.connect('Bball.db')
@@ -32,10 +33,15 @@ def player(id):
                         WHERE Player.id=?;""",(id,)).fetchone()
     connect.close()
     return render_template('player.html', player=player)
-    
 
 
-
+@app.route("/teams")
+def teams():
+    connect = sqlite3.connect("Bball.db")
+    c = connect.cursor()
+    teams = c.execute("""SELECT * FROM Team;""").fetchall()
+    connect.close()
+    return render_template('teams.html', teams=teams)
 
 
 if __name__ == "__main__":
