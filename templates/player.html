@@ -2,19 +2,22 @@
 {% block content %}
 
 <div class="two_column">
-    {% for player in players %}
-    <div class="w3-card-4"> 
-        <a href="/player/{{player[0]}}" ><img src="{{ url_for('static', filename='/images/'+ player[3]) }}" alt="{{player[3]}}"></a>
-        <div class="w3-container w3-center">
+  <div class="w3-card-4">
+      <img src="{{ url_for('static', filename='/images/'+ player[8]) }}" alt="{{player[8]}}"></a>
           <p>{{player[1]}} {{player[2]}}</p>
     
-        </div>
-      </div>
-
-<h2>{{player}}</h2>
-
-{% endfor %}
+       
+ 
+  </div>
+  <div>
+    <ul class="w3-ul w3-card-4" style="width:50%">
+      <li><h1>Player information</h1></li>
+      <li>Height:  {{player[3]}}</li>
+      <li>Age: {{player[4]}}</li>
+      <li>Jersey Number: {{player[6]}}</li>
+      <li>Position:  {{player[7]}}</li>
+      <li>Team:  {{player[5]}}</li>
+    </ul>
+  </div>
 </div>
-
-
 {% endblock %}

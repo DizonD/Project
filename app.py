@@ -4,6 +4,7 @@ import sqlite3
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello_world(): 
     connect = sqlite3.connect("Bball.db")
@@ -13,6 +14,7 @@ def hello_world():
                             .Teamid=Team.team_id;""").fetchall()
     connect.close()
     return render_template('home.html', players=players)
+
 
 @app.route("/allplayers")
 def allplayers():
