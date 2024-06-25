@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+<div class="two_column">
+  <div class="w3-card-4">
+      <img src="{{ url_for('static', filename='/images/'+ teams[3]) }}" alt="{{teams[3]}}"></a>
+          <p>{{Team[1]}} {{Team[3]}}</p>
+    
+       
+ 
+  </div>
+  <div>
+    <ul class="w3-ul w3-card-4" style="width:50%">
+      <li><h1>Team information</h1></li>
+      <li>Height:  {{player[3]}}</li>
+      <li>Age: {{player[4]}}</li>
+      <li>Jersey Number: {{player[6]}}</li>
+      <li>Position:  {{player[7]}}</li>
+      <li>Team:  {{player[5]}}</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
