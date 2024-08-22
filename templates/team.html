@@ -3,20 +3,22 @@
 
 <div class="two_column">
   <div class="w3-card-4">
-      <img src="{{ url_for('static', filename='/images/'+ teams[3]) }}" alt="{{teams[3]}}"></a>
-          <p>{{Team[1]}} {{Team[3]}}</p>
+      <img src="{{ url_for('static', filename='/images/'+ team[2]) }}" alt="{{team[2]}}"></a>
+          <p>{{team[1]}}</p>
     
        
  
   </div>
   <div>
     <ul class="w3-ul w3-card-4" style="width:50%">
-      <li><h1>Team information</h1></li>
-      <li>Height:  {{player[3]}}</li>
-      <li>Age: {{player[4]}}</li>
-      <li>Jersey Number: {{player[6]}}</li>
-      <li>Position:  {{player[7]}}</li>
-      <li>Team:  {{player[5]}}</li>
+      <p>{{top_player[1]}} {{top_player[2]}}</p>
+      <img src="{{ url_for('static', filename='/images/'+ top_player[8]) }}" alt="{{top_player[8]}}"></a>
+      <li><h1>Top player</h1></li>
+      <li>Height:  {{top_player[3]}}</li>
+      <li>Age: {{top_player[4]}}</li>
+      <li>Jersey Number: {{top_player[6]}}</li>
+      <li>Position:  {{top_player[15]}}</li>
+      <li>Team:  {{top_player[12]}}</li>
     </ul>
   </div>
 </div>

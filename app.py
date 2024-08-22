@@ -53,18 +53,20 @@ def teams():
     return render_template('teams.html', teams=teams)
 
 
-@app.route('/teams/<int:id>')
+@app.route('/team/<int:id>')
 def team(id):
     '''Joining Team ID on Player'''
     connect = sqlite3.connect('Bball.db')
     c = connect.cursor()
-    teams = c.execute("""SELECT * FROM Player JOIN Team ON Player.Teamid=Team.team_id
-                        WHERE Team.id=?;""",(id,)).fetchone()
+    top_player = c.execute("""SELECT * FROM Player JOIN Team ON Player.Teamid=Team.team_id
+                        WHERE Player.Teamid=?""",(id,)).fetchone()
+    team= c.execute ("""SELECT * FROM Team Where team_id=?;""",(id,)).fetchone()
     connect.close()
-    return render_template('teams.html', teams=teams)
+    return render_template('team.html', team=team,top_player=top_player)
+    
 
 # Error handling for page not found errors 
-@app.errorhandler(500)
+@app.errorhandler(404)
 def page_not_found(error):
     return render_template('error.html', error='Page not found'), 404
 
@@ -74,9 +76,9 @@ def internal_server_error(error):
     return render_template('error.html', error='Internal server error'), 500
 
 # Error handling for unexpected errors 
-@app.errorhandler(Exception)
-def unexpected_error(error):
-    return render_template('error.html', error='Something went wrong'), 500
+# @app.errorhandler(Exception)
+# def unexpected_error(error):
+# return render_template('error.html', error='Something went wrong'), 500
 
 
 if __name__ == "__main__":
